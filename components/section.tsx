@@ -48,10 +48,10 @@ export default function Section(){
           {/* Trust logos */}
           <div className="flex justify-center items-center mt-16 space-x-8 opacity-80">
             {/* Replace these with your real logos */}
-            <img src="/images/shopify.png" alt="Logo 1" className="w-[120px] h-[50px] object-contain" />
-            <img src="/images/stripe.png" alt="Logo 2" className="w-[120px] h-[50px] object-contain"  />
-            <img src="/images/wordpress.png" alt="Logo 3"  className="w-[120px] h-[50px] object-contain" />
-            <img src="/images/zapier.png" alt="Logo 4" className="w-[120px] h-[50px] object-contain"  />
+            <img src="/images/shopify.png" alt="Logo 1" className="w-[120px] h-[50px] object-contain object-cover " />
+            <img src="/images/stripe.png" alt="Logo 2" className="w-[120px] h-[50px] object-contain object-cover"  />
+            <img src="/images/wordpress.png" alt="Logo 3"  className="w-[120px] h-[50px] object-contain object-cover " />
+            <img src="/images/zapier.png" alt="Logo 4" className="w-[120px] h-[50px] object-contain object-cover"  />
           </div>
         </div>
       </section>
