@@ -1,166 +1,3 @@
-// "use client";
-
-// import { useState } from "react";
-// import Link from "next/link";
-// import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-
-// export default function Home() {
-//   const [isOpen, setIsOpen] = useState(false);
-
-//   const menuItems = [
-//     { name: "Home", href: "/" },
-//     { name: "Features", href: "/features" },
-//     { name: "Pricing", href: "/pricing" },
-//     { name: "Contact", href: "/contact" },
-//   ];
-
-//   return (
-//     <>
-//       {/* Navbar */}
-//       <nav className="bg-white shadow-sm fixed w-full z-50">
-//         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
-//           <div className="flex justify-between items-center h-20">
-//             <div className="text-2xl md:text-3xl font-bold text-gray-900">
-//               MyWidgetApp
-//             </div>
-
-//             {/* Desktop Menu */}
-//             <div className="hidden md:flex items-center space-x-8">
-//               {menuItems.map((item) => (
-//                 <Link
-//                   key={item.name}
-//                   href={item.href}
-//                   className="px-5 py-2 text-gray-800 hover:bg-gray-900 hover:text-white rounded-lg transition"
-//                 >
-//                   {item.name}
-//                 </Link>
-//               ))}
-
-//               <Link
-//                 href="/contact"
-//                 className="px-6 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition"
-//               >
-//                 Contact Us
-//               </Link>
-//             </div>
-
-//             {/* Mobile Menu Button */}
-//             <div className="md:hidden">
-//               <button onClick={() => setIsOpen(!isOpen)}>
-//                 {isOpen ? (
-//                   <XMarkIcon className="w-7 h-7 text-gray-900" />
-//                 ) : (
-//                   <Bars3Icon className="w-7 h-7 text-gray-900" />
-//                 )}
-//               </button>
-//             </div>
-//           </div>
-//         </div>
-
-//         {/* Mobile Menu */}
-//         {isOpen && (
-//           <div className="md:hidden bg-white shadow-md border-t">
-//             <div className="flex flex-col items-center py-4 space-y-3">
-//               {menuItems.map((item) => (
-//                 <Link
-//                   key={item.name}
-//                   href={item.href}
-//                   className="w-full text-center px-5 py-2 text-gray-800 hover:bg-gray-900 hover:text-white rounded-lg transition"
-//                   onClick={() => setIsOpen(false)}
-//                 >
-//                   {item.name}
-//                 </Link>
-//               ))}
-//               <Link
-//                 href="/contact"
-//                 className="w-full text-center px-6 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition"
-//                 onClick={() => setIsOpen(false)}
-//               >
-//                 Contact Us
-//               </Link>
-//             </div>
-//           </div>
-//         )}
-//       </nav>
-
-//       {/* Hero Section */}
-//       <section className="pt-28 bg-gray-50">
-//         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 text-center">
-//           <p className="text-gray-600 mb-2">Dynamic Widget App for Businesses</p>
-//           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-//             Boost Conversions with Lead & E-Commerce Widgets
-//           </h1>
-//           <p className="text-gray-700 text-lg md:text-xl mb-8">
-//             Fully customizable, responsive widgets to capture leads and drive sales.
-//           </p>
-//           <Link
-//             href="/features"
-//             className="px-8 py-3 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition font-semibold"
-//           >
-//             Get Started
-//           </Link>
-//         </div>
-//       </section>
-
-//       {/* Features Section */}
-//       <section className="bg-white py-20">
-//         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
-//           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-12">
-//             Our Widgets
-//           </h2>
-//           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-//             <div className="bg-gray-50 rounded-xl p-8 shadow hover:shadow-lg transition">
-//               <h3 className="text-2xl font-semibold mb-4">Lead Generation</h3>
-//               <p className="text-gray-700 mb-4">
-//                 Create dynamic, fully customizable lead generation widgets for your website.
-//               </p>
-//               <Link
-//                 href="/features"
-//                 className="text-gray-900 font-semibold hover:underline"
-//               >
-//                 Learn More
-//               </Link>
-//             </div>
-//             <div className="bg-gray-50 rounded-xl p-8 shadow hover:shadow-lg transition">
-//               <h3 className="text-2xl font-semibold mb-4">E-Commerce Widgets</h3>
-//               <p className="text-gray-700 mb-4">
-//                 Add responsive e-commerce widgets to showcase products and streamline checkout.
-//               </p>
-//               <Link
-//                 href="/features"
-//                 className="text-gray-900 font-semibold hover:underline"
-//               >
-//                 Learn More
-//               </Link>
-//             </div>
-//           </div>
-//         </div>
-//       </section>
-
-//       {/* CTA Section */}
-//       <section className="bg-gray-50 py-16 text-center">
-//         <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900">
-//           Ready to Get Started?
-//         </h2>
-//         <p className="text-gray-700 mb-8 text-lg">
-//           Try our widgets today and boost your website performance instantly.
-//         </p>
-//         <Link
-//           href="/pricing"
-//           className="px-8 py-3 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition font-semibold"
-//         >
-//           Start Free Trial
-//         </Link>
-//       </section>
-
-//       {/* Footer */}
-//       <footer className="bg-white py-6 text-center text-gray-700">
-//         &copy; {new Date().getFullYear()} MyWidgetApp. All rights reserved.
-//       </footer>
-//     </>
-//   );
-// }
-
 "use client";
 
 import { useState } from "react";
@@ -174,70 +11,67 @@ export default function Home() {
     { name: "Home", href: "/" },
     { name: "Features", href: "/features" },
     { name: "Pricing", href: "/pricing" },
-    { name: "About", href: "/about" },
     { name: "Contact", href: "/contact" },
   ];
 
   return (
     <>
-      {/* Navbar */}
-      <nav className="bg-gradient-to-r from-blue-600 to-indigo-700 shadow-lg fixed w-full z-50">
+      <nav className="bg-white shadow-sm fixed w-full z-50">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
           <div className="flex justify-between items-center h-20">
-            <div className="text-white text-3xl font-extrabold tracking-wide">
-              MyWidgetApp
+            <div className="text-2xl md:text-3xl font-bold text-gray-900">
+              Widget Platform
             </div>
 
             {/* Desktop Menu */}
-            <div className="hidden md:flex items-center space-x-8 text-white font-semibold">
+            <div className="hidden md:flex items-center space-x-8">
               {menuItems.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className="px-4 py-2 hover:bg-white hover:text-indigo-700 rounded transition"
-                >
-                  {item.name}
+                <Link href={item.href}
+                      key={item.name}
+                      className="relative group px-5 py-2 text-blue-600 font-semibold rounded-lg transition">
+                      {item.name}
+                    <span className="absolute left-0 -bottom-1 w-full h-0.5 bg-blue-600 scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
+                    
                 </Link>
               ))}
 
               <Link
                 href="/contact"
-                className="px-6 py-2 bg-white text-indigo-700 rounded-lg hover:bg-gray-100 transition font-bold"
+                className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
               >
                 Contact Us
               </Link>
             </div>
-
             {/* Mobile Menu Button */}
             <div className="md:hidden">
-              <button onClick={() => setIsOpen(!isOpen)} aria-label="Toggle menu">
+              <button onClick={() => setIsOpen(!isOpen)} aria-label="Toggle Menu">
                 {isOpen ? (
-                  <XMarkIcon className="w-7 h-7 text-white" />
+                  <XMarkIcon className="w-7 h-7 text-gray-900" />
                 ) : (
-                  <Bars3Icon className="w-7 h-7 text-white" />
+                  <Bars3Icon className="w-7 h-7 text-gray-900" />
                 )}
               </button>
             </div>
           </div>
-        </div>
-
+        </div> 
         {/* Mobile Menu */}
         {isOpen && (
-          <div className="md:hidden bg-indigo-700 shadow-md border-t border-indigo-600">
-            <div className="flex flex-col items-center py-4 space-y-3 text-white font-semibold">
+          <div className="md:hidden bg-white shadow-md border-t">
+            <div className="flex flex-col items-center py-4 space-y-3">
               {menuItems.map((item) => (
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="w-full text-center px-5 py-2 hover:bg-white hover:text-indigo-700 rounded transition"
+                  className="relative group w-full text-center px-5 py-2 text-blue-600 font-semibold rounded-lg transition"
                   onClick={() => setIsOpen(false)}
                 >
                   {item.name}
+                  <span className="absolute left-0 -bottom-1 w-full h-0.5 bg-blue-600 scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
                 </Link>
               ))}
               <Link
                 href="/contact"
-                className="w-full text-center px-6 py-2 bg-white text-indigo-700 rounded-lg hover:bg-gray-100 transition font-bold"
+                className="w-full text-center px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
                 onClick={() => setIsOpen(false)}
               >
                 Contact Us
@@ -246,127 +80,398 @@ export default function Home() {
           </div>
         )}
       </nav>
-
-      {/* Hero Section */}
+      {/* HERO SECTION */}
       <section
-        className="relative pt-32 pb-20 bg-gradient-to-r from-indigo-700 to-blue-600 text-white text-center"
-        style={{ backgroundImage: 'url("/images/hero-bg.jpg")', backgroundSize: "cover", backgroundPosition: "center" }}
+        className="pt-28 bg-gradient-to-r from-blue-500 to-green-400 text-white"
+        style={{
+          backgroundImage:
+            "url('https://images.unsplash.com/photo-1506765515384-028b60a970df?auto=format&fit=crop&w=1350&q=80')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
       >
-        {/* Overlay for better contrast */}
-        <div className="absolute inset-0 bg-indigo-900 opacity-70"></div>
-
-        <div className="relative max-w-4xl mx-auto px-6 sm:px-8 lg:px-0">
-          <h1 className="text-5xl md:text-6xl font-extrabold mb-6 leading-tight drop-shadow-lg">
-            Boost Your Business with Powerful Widgets
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 text-center py-20 backdrop-brightness-75 rounded-lg">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">
+            Create Powerful Widgets Without Code
           </h1>
-          <p className="text-lg md:text-xl mb-10 drop-shadow-md">
-            Engage visitors, capture leads, and increase sales with fully customizable tools.
+          <p className="text-lg md:text-xl mb-8 max-w-3xl mx-auto">
+            Transform your website with interactive widgets that capture leads, boost sales,
+            and engage visitors. No coding required - just drag, drop, and deploy.
           </p>
-          <Link
-            href="/features"
-            className="inline-block px-10 py-4 bg-yellow-400 text-indigo-900 font-bold rounded shadow-lg hover:bg-yellow-300 transition"
-          >
-            Get Started Now
-          </Link>
+
+          {/* Features bullets */}
+          <ul className="mb-10 space-y-2 text-left max-w-md mx-auto list-disc list-inside text-white">
+            <li>Zero coding required - drag & drop builder</li>
+            <li>Works on any website or platform</li>
+            <li>Real-time customization and preview</li>
+            <li>Enterprise-grade security & performance</li>
+          </ul>
+
+          {/* CTAs */}
+          <div className="space-x-4">
+            <Link
+              href="https://widget-dashboard-two.vercel.app/login"
+              className="inline-block px-8 py-3 bg-blue-600 rounded-lg font-semibold hover:bg-blue-700 transition"
+            >
+              Start Free Trial
+            </Link>
+            <Link
+              href="/demo"
+              className="inline-block px-8 py-3 bg-white text-blue-600 rounded-lg font-semibold hover:bg-gray-100 transition"
+            >
+              Watch Demo
+            </Link>
+          </div>
+
+          {/* Trust logos */}
+          <div className="flex justify-center items-center mt-16 space-x-8 opacity-80">
+            {/* Replace these with your real logos */}
+            <img src="https://via.placeholder.com/100x40?text=Logo1" alt="Logo 1" />
+            <img src="https://via.placeholder.com/100x40?text=Logo2" alt="Logo 2" />
+            <img src="https://via.placeholder.com/100x40?text=Logo3" alt="Logo 3" />
+            <img src="https://via.placeholder.com/100x40?text=Logo4" alt="Logo 4" />
+          </div>
         </div>
       </section>
 
-      {/* Features Section */}
-      <section className="py-20 bg-white">
+      {/* PROBLEM/SOLUTION SECTION */}
+      <section className="bg-white py-20 max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 flex flex-col md:flex-row items-center gap-10">
+        {/* Left - Problem Text */}
+        <div className="md:w-1/2">
+          <h2 className="text-3xl font-bold text-gray-900 mb-6">
+            Tired of Complex Widget Development?
+          </h2>
+          <ul className="list-disc list-inside space-y-2 text-gray-700 mb-6">
+            <li>Hiring developers costs thousands and takes weeks</li>
+            <li>Existing solutions are rigid and hard to customize</li>
+            <li>Technical barriers prevent quick website improvements</li>
+            <li>Poor mobile experience drives visitors away</li>
+          </ul>
+          <p className="text-gray-800 font-semibold">
+            Our no-code platform lets you create professional widgets in minutes, not months.
+            Customize everything, deploy anywhere, and see results immediately.
+          </p>
+        </div>
+
+        {/* Right - Image */}
+        <div className="md:w-1/2">
+          <img
+            src="https://images.unsplash.com/photo-1556740749-887f6717d7e4?auto=format&fit=crop&w=800&q=80"
+            alt="Before and After Widget Development"
+            className="rounded-lg shadow-lg"
+          />
+        </div>
+      </section>
+
+      {/* WIDGET TYPES SHOWCASE */}
+      <section className="bg-gray-50 py-20">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
-          <h2 className="text-4xl font-extrabold text-center text-gray-900 mb-16">
-            What We Offer
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-12">
+            5 Powerful Widget Types for Every Business Need
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-            {/* Feature Card 1 */}
-            <div className="rounded-lg shadow-lg p-8 hover:shadow-2xl transition bg-gray-50">
-              <img
-                src="/images/lead.jfif"
-                alt="Lead Generation"
-                className="mx-auto mb-6 h-40"
-              />
-              <h3 className="text-2xl font-semibold mb-4 text-indigo-700">Lead Generation</h3>
-              <p className="text-gray-700">
-                Capture quality leads with customizable, easy-to-integrate widgets designed to convert visitors.
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+            {/* Lead Generation Widget */}
+            <div className="bg-white rounded-xl p-8 shadow hover:shadow-lg transition">
+              <div className="text-4xl mb-4">📝</div>
+              <h3 className="text-2xl font-semibold mb-4">Capture More Leads</h3>
+              <p className="text-gray-700 mb-4">
+                Convert visitors into customers with smart forms, lead scoring, and CRM integration.
               </p>
+              <p className="mb-2 font-semibold">Features:</p>
+              <ul className="list-disc list-inside text-gray-600 mb-4">
+                <li>Custom fields</li>
+                <li>Lead scoring</li>
+                <li>CRM sync</li>
+                <li>Auto-responders</li>
+              </ul>
+              <p className="mb-2 font-semibold">Use Cases:</p>
+              <p className="text-gray-700 mb-6">Contact forms, Newsletter signups, Quote requests</p>
+              <img
+                src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=600&q=80"
+                alt="Contact form widget example"
+                className="rounded-md shadow"
+              />
             </div>
 
-            {/* Feature Card 2 */}
-            <div className="rounded-lg shadow-lg p-8 hover:shadow-2xl transition bg-gray-50">
-              <img
-                src="/images/e-commerce.jfif"
-                alt="E-Commerce Widgets"
-                className="mx-auto mb-6 h-24"
-              />
-              <h3 className="text-2xl font-semibold mb-4 text-indigo-700">E-Commerce Widgets</h3>
-              <p className="text-gray-700">
-                Showcase your products beautifully and provide a smooth checkout experience to increase sales.
+            {/* E-Commerce Widget */}
+            <div className="bg-white rounded-xl p-8 shadow hover:shadow-lg transition">
+              <div className="text-4xl mb-4">🛒</div>
+              <h3 className="text-2xl font-semibold mb-4">Boost Online Sales</h3>
+              <p className="text-gray-700 mb-4">
+                Sell products directly from your website with shopping carts, payments, and inventory management.
               </p>
-            </div>
-
-            {/* Feature Card 3 */}
-            <div className="rounded-lg shadow-lg p-8 hover:shadow-2xl transition bg-gray-50">
+              <p className="mb-2 font-semibold">Features:</p>
+              <ul className="list-disc list-inside text-gray-600 mb-4">
+                <li>Product catalogs</li>
+                <li>Shopping cart</li>
+                <li>Payment gateways</li>
+                <li>WhatsApp orders</li>
+              </ul>
+              <p className="mb-2 font-semibold">Use Cases:</p>
+              <p className="text-gray-700 mb-6">Product catalogs, Restaurant menus, Service bookings</p>
               <img
-                src="/images/analytics.svg"
-                alt="Analytics"
-                className="mx-auto mb-6 h-24"
+                src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=600&q=80"
+                alt="Product catalog widget example"
+                className="rounded-md shadow"
               />
-              <h3 className="text-2xl font-semibold mb-4 text-indigo-700">Analytics & Insights</h3>
-              <p className="text-gray-700">
-                Track widget performance, monitor leads and sales, and optimize your strategy with real-time data.
-              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Testimonials Section */}
-      <section className="bg-indigo-50 py-20">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-3xl font-extrabold mb-12 text-indigo-900">
-            What Our Customers Say
+      {/* FEATURES & BENEFITS */}
+      <section className="bg-white py-20">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-12">
+            Everything You Need to Succeed
           </h2>
 
-          <div className="space-y-12">
-            <blockquote className="bg-white p-8 rounded-lg shadow-md">
-              <p className="text-gray-700 italic mb-4">
-                “MyWidgetApp has revolutionized the way we generate leads and connect with customers. Highly recommend!”
-              </p>
-              <cite className="block text-indigo-700 font-semibold">— Sarah J.</cite>
-            </blockquote>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 text-gray-700">
+            <div>
+              <h3 className="font-semibold text-xl mb-4">EASY TO USE</h3>
+              <ul className="list-disc list-inside space-y-2">
+                <li>Drag & Drop Builder</li>
+                <li>Live Preview</li>
+                <li>No Coding Required</li>
+                <li>One-Click Deploy</li>
+              </ul>
+            </div>
 
-            <blockquote className="bg-white p-8 rounded-lg shadow-md">
-              <p className="text-gray-700 italic mb-4">
-                “Our sales grew by 30% after integrating these easy-to-use e-commerce widgets.”
-              </p>
-              <cite className="block text-indigo-700 font-semibold">— Mark T.</cite>
-            </blockquote>
+            <div>
+              <h3 className="font-semibold text-xl mb-4">POWERFUL & FLEXIBLE</h3>
+              <ul className="list-disc list-inside space-y-2">
+                <li>Custom Styling</li>
+                <li>Advanced Analytics</li>
+                <li>API Integration</li>
+                <li>Webhook Support</li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="font-semibold text-xl mb-4">SECURE & RELIABLE</h3>
+              <ul className="list-disc list-inside space-y-2">
+                <li>SSL Encryption</li>
+                <li>GDPR Compliant</li>
+                <li>99.9% Uptime</li>
+                <li>Regular Backups</li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="mt-12 text-center text-gray-900 space-y-2 text-lg font-semibold">
+            <p>Save Time & Money</p>
+            <p>Professional Results</p>
+            <p>Increase Conversions</p>
+            <p>Scale Easily</p>
           </div>
         </div>
       </section>
 
-      {/* Call to Action Section */}
-      <section className="bg-indigo-700 py-20 text-center text-white">
-        <h2 className="text-4xl font-extrabold mb-6">Ready to Grow Your Business?</h2>
-        <p className="mb-10 max-w-xl mx-auto text-lg">
-          Start using our widgets today and watch your leads and sales soar.
+      {/* CUSTOMIZATION SHOWCASE */}
+      <section className="bg-gray-50 py-20 max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-12">
+          Make It Uniquely Yours
+        </h2>
+
+        <p className="max-w-3xl mx-auto text-center text-gray-700 mb-10">
+          See how easy it is to match your brand and create professional-looking widgets that your
+          customers will love.
         </p>
-        <Link
-          href="/pricing"
-          className="inline-block bg-yellow-400 text-indigo-900 font-bold px-10 py-4 rounded shadow hover:bg-yellow-300 transition"
-        >
-          Start Free Trial
-        </Link>
+
+        {/* Before/After slider simulation */}
+        <div className="flex flex-col md:flex-row gap-10 justify-center items-center">
+          <div className="w-full md:w-1/2 rounded-lg shadow-lg overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=600&q=80"
+              alt="Basic widget"
+              className="w-full"
+            />
+            <p className="text-center py-4 font-semibold text-gray-800">Basic Widget</p>
+          </div>
+          <div className="w-full md:w-1/2 rounded-lg shadow-lg overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1527689368864-3a821dbccc34?auto=format&fit=crop&w=600&q=80"
+              alt="Customized widget"
+              className="w-full"
+            />
+            <p className="text-center py-4 font-semibold text-gray-800">Branded & Customized</p>
+          </div>
+        </div>
+
+        <ul className="mt-10 max-w-3xl mx-auto text-gray-700 list-disc list-inside space-y-2 text-center">
+          <li>Brand Colors & Fonts</li>
+          <li>Custom Logos & Images</li>
+          <li>Layout Templates</li>
+          <li>Mobile Optimization</li>
+          <li>CSS Customization</li>
+        </ul>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-indigo-900 py-8 text-center text-indigo-200">
-        <p>© {new Date().getFullYear()} MyWidgetApp. All rights reserved.</p>
-        <div className="mt-4 space-x-6">
-          {/* Social Icons (simple placeholders) */}
-          <a href="#" aria-label="Facebook" className="hover:text-white">Facebook</a>
-          <a href="#" aria-label="Twitter" className="hover:text-white">Twitter</a>
-          <a href="#" aria-label="LinkedIn" className="hover:text-white">LinkedIn</a>
+      {/* ANALYTICS & INSIGHTS */}
+      <section className="bg-white py-20 max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 text-center">
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12">
+          Track Performance & Optimize Results
+        </h2>
+
+        <img
+          src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1000&q=80"
+          alt="Analytics dashboard mockup"
+          className="mx-auto rounded-lg shadow-lg mb-12 max-w-full"
+        />
+
+        <ul className="max-w-xl mx-auto text-gray-700 list-disc list-inside space-y-3 text-left">
+          <li>Real-time Performance Data</li>
+          <li>Conversion Tracking</li>
+          <li>A/B Testing Tools</li>
+          <li>Detailed Reports</li>
+          <li>Export Capabilities</li>
+        </ul>
+
+        <p className="mt-6 max-w-xl mx-auto text-gray-800">
+          Make data-driven decisions with comprehensive analytics that show exactly how your
+          widgets are performing.
+        </p>
+      </section>
+
+      {/* INTEGRATIONS */}
+      <section className="bg-gray-50 py-20 max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 text-center">
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12">
+          Works with Your Favorite Tools
+        </h2>
+
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-10 max-w-5xl mx-auto items-center">
+          {/* Marketing Tools */}
+          <div>
+            <p className="font-semibold mb-4 text-gray-700">MARKETING TOOLS</p>
+            <div className="flex flex-wrap justify-center gap-6">
+              {[
+                "https://upload.wikimedia.org/wikipedia/commons/4/4e/Mailchimp_Favicon.png",
+                "https://upload.wikimedia.org/wikipedia/commons/c/cb/HubSpot_Logo.svg",
+                "https://upload.wikimedia.org/wikipedia/commons/4/4a/Google_Analytics_Logo.png",
+                "https://upload.wikimedia.org/wikipedia/commons/0/0b/Facebook_Pixel_Logo.png",
+              ].map((src, idx) => (
+                <img key={idx} src={src} alt="Marketing Tool Logo" className="h-12" />
+              ))}
+            </div>
+          </div>
+
+          {/* Communication */}
+          <div>
+            <p className="font-semibold mb-4 text-gray-700">COMMUNICATION</p>
+            <div className="flex flex-wrap justify-center gap-6">
+              {[
+                "https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg",
+                "https://upload.wikimedia.org/wikipedia/commons/7/7e/Slack_Icon.svg",
+                "https://upload.wikimedia.org/wikipedia/commons/4/43/Email_Icon.svg",
+                "https://upload.wikimedia.org/wikipedia/commons/2/27/Twilio_logo.png",
+              ].map((src, idx) => (
+                <img key={idx} src={src} alt="Communication Tool Logo" className="h-12" />
+              ))}
+            </div>
+          </div>
+
+          {/* E-Commerce */}
+          <div>
+            <p className="font-semibold mb-4 text-gray-700">E-COMMERCE</p>
+            <div className="flex flex-wrap justify-center gap-6">
+              {[
+                "https://upload.wikimedia.org/wikipedia/commons/2/2a/Stripe_Logo%2C_revised_2016.svg",
+                "https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg",
+                "https://upload.wikimedia.org/wikipedia/commons/4/49/Square_Inc._Logo.svg",
+                "https://upload.wikimedia.org/wikipedia/commons/7/7e/WooCommerce_logo.svg",
+              ].map((src, idx) => (
+                <img key={idx} src={src} alt="E-commerce Tool Logo" className="h-12" />
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* PRICING */}
+      <section className="bg-white py-20 max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 text-center">
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12">
+          Simple, Transparent Pricing
+        </h2>
+
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-6xl mx-auto">
+          {/* Free Plan */}
+          <div className="border rounded-lg p-8 shadow hover:shadow-lg transition">
+            <h3 className="text-xl font-semibold mb-4">FREE PLAN</h3>
+            <p className="text-4xl font-bold mb-6">$0<span className="text-base font-normal">/month</span></p>
+            <ul className="list-disc list-inside mb-6 text-gray-700 space-y-1">
+              <li>3 widgets</li>
+              <li>100 submissions/month</li>
+              <li>Basic templates</li>
+              <li>Email support</li>
+              <li>Perfect for testing</li>
+            </ul>
+            <button className="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition">
+              Start Free Trial
+            </button>
+          </div>
+
+          {/* Professional Plan */}
+          <div className="border rounded-lg p-8 shadow hover:shadow-lg transition">
+            <h3 className="text-xl font-semibold mb-4">PROFESSIONAL PLAN</h3>
+            <p className="text-4xl font-bold mb-6">$29<span className="text-base font-normal">/month</span></p>
+            <ul className="list-disc list-inside mb-6 text-gray-700 space-y-1">
+              <li>25 widgets</li>
+              <li>5,000 submissions/month</li>
+              <li>All templates</li>
+              <li>Advanced analytics</li>
+              <li>Priority support</li>
+              <li>Custom branding</li>
+            </ul>
+            <button className="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition">
+              Start Free Trial
+            </button>
+          </div>
+
+          {/* Business Plan */}
+          <div className="border rounded-lg p-8 shadow hover:shadow-lg transition">
+            <h3 className="text-xl font-semibold mb-4">BUSINESS PLAN</h3>
+            <p className="text-4xl font-bold mb-6">$79<span className="text-base font-normal">/month</span></p>
+            <ul className="list-disc list-inside mb-6 text-gray-700 space-y-1">
+              <li>100 widgets</li>
+              <li>50,000 submissions/month</li>
+              <li>All features</li>
+              <li>Dedicated account manager</li>
+              <li>Custom integrations</li>
+              <li>Phone & chat support</li>
+            </ul>
+            <button className="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition">
+              Contact Sales
+            </button>
+          </div>
+
+          {/* Enterprise Plan */}
+          <div className="border rounded-lg p-8 shadow hover:shadow-lg transition">
+            <h3 className="text-xl font-semibold mb-4">ENTERPRISE PLAN</h3>
+            <p className="mb-6 text-gray-700">Custom pricing for large businesses</p>
+            <ul className="list-disc list-inside mb-6 text-gray-700 space-y-1">
+              <li>Unlimited widgets</li>
+              <li>Custom SLAs</li>
+              <li>Advanced security</li>
+              <li>Custom onboarding</li>
+              <li>Dedicated support team</li>
+            </ul>
+            <button className="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition">
+              Contact Sales
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* FOOTER */}
+      <footer className="bg-gray-900 text-gray-400 py-12 mt-20">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 flex flex-col md:flex-row justify-between items-center">
+          <p>© {new Date().getFullYear()} Widget Platform. All rights reserved.</p>
+          <div className="space-x-6 mt-4 md:mt-0">
+            <Link href="/privacy" className="hover:text-white transition">Privacy Policy</Link>
+            <Link href="/terms" className="hover:text-white transition">Terms of Service</Link>
+            <Link href="/contact" className="hover:text-white transition">Contact</Link>
+          </div>
         </div>
       </footer>
     </>
